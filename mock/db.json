@@ -1,0 +1,9 @@
+{
+  "/trainingcamps/1":{
+    "id": 1,
+     "title": "xx训练营",
+     "start_time": "2018-01-02 10:12:55.222",
+     "description": "This is a training camp",
+     "created_time": "2018-01-01 09:12:33.443"
+ }
+}
