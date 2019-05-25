@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import * as styles from './topbar.less'
 import logo from '../../assests/imgs/thoughtworks-logo.png'
