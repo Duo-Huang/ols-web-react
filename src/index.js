@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assests/css/index.css';
 import Router from './router/index';
-import registerServiceWorker from './registerServiceWorker';
+import './assests/css/normalize.css'
 
 ReactDOM.render(<Router />, document.getElementById('root'));
-registerServiceWorker();
