@@ -5,6 +5,9 @@
   "proxy": {
     "/api/*": {
       "target": "http://localhost:8080"
+    },
+    "/trainingcamps/*": {
+      "target": "http://localhost:8080"
     }
   },
   "dependencies": {
