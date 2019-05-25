@@ -8,19 +8,20 @@ import avatar from '../../assests/imgs/oval.png'
 class Topbar extends React.Component {
 
     render() {
+        const { pathname } = this.props.location;
         return (
             <div className={styles.container}>
-                <img src={logo} className={styles.logo} />
+                <img src={logo} className={styles.logo} alt="logo" />
                 <Link to="account" className={cls({
-                    [styles.active]: this.props.location.pathname === '/account'
+                    [styles.active]: pathname === '/account'
                 })}>账户</Link>
                 <Link to="train" className={cls({
-                    [styles.active]: this.props.location.pathname === '/train'
+                    [styles.active]: pathname === '/train'
                 })}>训练营</Link>
                 <Link to="mission" className={cls({
-                    [styles.active]: this.props.location.pathname === '/mission'
+                    [styles.active]: pathname === '/mission'
                 })}>任务卡</Link>
-                <img src={avatar} className={styles.avatar}/>
+                <img src={avatar} className={styles.avatar} alt="user"/>
             </div>
         );
     }

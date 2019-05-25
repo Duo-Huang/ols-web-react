@@ -14,7 +14,7 @@ export default class Card extends React.PureComponent {
         <div className={styles['card-title']}>{title}</div>
         <div className={styles['card-description']}>{description}</div>
         <div className={styles['card-time']}>{time}</div>
-        <div className={styles['card-close']}>x</div>
+        <div className={styles['card-close']}></div>
       </div>
     );
   }
