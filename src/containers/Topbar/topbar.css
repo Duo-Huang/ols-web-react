@@ -1,0 +1,22 @@
+.container {
+    width: 1440px;
+    margin: 0 auto;
+    height: 60px;
+    box-shadow: 0 2px 4px 0 rgba(129, 129, 129, 0.5);
+    background-color: #ffffff;
+}
+
+.container > a {
+    text-decoration: none;
+    display: inline-block;
+    height: 60px;
+    font-family: PingFangSC;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 60px;
+    letter-spacing: normal;
+    color: #000000; 
+    margin: 0 30px;
+}
