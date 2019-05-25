@@ -16,32 +16,35 @@ export default class Topbar extends React.Component {
 
     constructor() {
         super();
-        this.state = { 
-            trainList: [], 
-            value: '' ,
+        this.state = {
+            trainList: [],
+            value: '',
             searchResult: []
         }
     }
     render() {
-        const { trainList, searchResult, value } = this.state;
+        const { searchResult, value } = this.state;
         return (
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <input type="text" value={value} onChange={this.inputChange}/>
+                    <span className={styles.inputContainer}>
+                        <input type="text" value={value} onChange={this.inputChange} />
+                        <span className={styles.inputClear} onClick={this.inputClear}></span>
+                    </span>
                     <button type="button" onClick={this.search}>搜索</button>
                 </div>
                 <div className={styles.section}>
                     <ul className={cls(styles.cardList, 'clear')}>
+                        <li style={{ marginRight: '40px' }} onClick={this.addTrain}>
+                            {addCard}
+                        </li>
                         {
                             searchResult.map((item, index) => {
-                                return index === 0 ?
-                                    <li key={item.id} style={{ marginRight: '40px' }} onClick={this.addTrain}>
-                                        {addCard}
-                                    </li> : (
-                                        <li key={item.id} style={{ marginRight: (index + 1) % 3 === 0 ? 0 : '40px' }}>
-                                            <Card title={item.title} description={item.description} time={item.startTime} />
-                                        </li>
-                                    )
+                                return (
+                                    <li key={item.id} style={{ marginRight: (index + 2) % 3 === 0 ? 0 : '40px' }}>
+                                        <Card title={item.title} description={item.description} time={item.startTime} />
+                                    </li>
+                                )
                             })
                         }
                     </ul>
@@ -66,6 +69,10 @@ export default class Topbar extends React.Component {
         });
     }
 
+    inputClear = () => {
+        this.setState({value: ''})
+    }
+
     search = () => {
         const { value } = this.state;
         const result = [];
@@ -82,7 +89,7 @@ export default class Topbar extends React.Component {
             }
 
         });
-        this.setState({searchResult: result})
+        this.setState({ searchResult: result })
 
         if (result.length === 0) {
             window.alert('您好，您所搜索的内容不存在！');
