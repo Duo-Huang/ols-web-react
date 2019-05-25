@@ -34,6 +34,7 @@
   }
   .formItem {
     display: flex;
+    margin-bottom: 20px;
     & > span {
       width: 62px;
       height: 20px;
@@ -45,7 +46,7 @@
       line-height: normal;
       letter-spacing: normal;
       color: #686868;
-      margin-bottom: 20px;
+      
     }
   }
   .name:extend(.flexCenter) {
@@ -55,6 +56,57 @@
     height: 40px;
     border-radius: 4px;
     border: solid 1px #979797;
+  }
+  .name > input {
+    width: 438px;
+  }
+  .time:extend(.flexCenter) {
+    & input {
+      margin: 0 10px;
+      width: 50px;
+    }
+  }
+  .description {
+    position: relative;
+    & textarea {
+      width: 438px;
+      height: 156px;
+      border-radius: 4px;
+      border: solid 1px #979797;
+      resize: none;
+    } 
+    .length {
+      position: absolute;
+      bottom: 12px;
+      left: 450px;
+      color: #686868;
+      font-size: 14px;
+    }
+  }
+
+
+  .buttonGroup {
+    display: flex;
+    margin-left: 340px;
+    > button:first-child {
+      width: 84px;
+      height: 40px;
+      border: none;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #00b4c5;
+    }
+    > button:last-child {
+      width: 84px;
+      height: 40px;
+      border-radius: 5px;
+      background-color: #00b4c5;
+      color: #FFF;
+    }
   }
 }
 

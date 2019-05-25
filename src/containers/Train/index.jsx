@@ -97,7 +97,6 @@ export default class Topbar extends React.Component {
     }
 
     addTrain = () => {
-        console.log(this.props)
         this.props.history.push('/create')
     }
 }
