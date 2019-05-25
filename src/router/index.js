@@ -7,7 +7,7 @@ const Router = () => (
         <Switch>
           <Route path='/account' render={() => <h3>account</h3>} />
           <Route path='/train' component={Train} />
-          <Route path='/mision' render={() => <h3>mision</h3>} />
+          <Route path='/mission' render={() => <h3>mission</h3>} />
           <Route path="/create" component={Create}/>
           <Redirect from="*" to="/account" />
         </Switch>

@@ -4,6 +4,12 @@
     height: 60px;
     box-shadow: 0 2px 4px 0 rgba(129, 129, 129, 0.5);
     background-color: #ffffff;
+    .logo {
+        float: left;
+        vertical-align: middle;
+        margin-left: 30px;
+        margin-top: 8px
+    }
     & > a {
         text-decoration: none;
         display: inline-block;
@@ -17,5 +23,16 @@
         letter-spacing: normal;
         color: #000000; 
         margin: 0 30px;
+        box-sizing: border-box;
+    }
+    a.active {
+        color: #00b4c5;
+        border-bottom: 4px solid #00b4c5
+    }
+    .avatar {
+        float: right;
+        vertical-align: middle;
+        margin-right: 40px;
+        margin-top: 10px;
     }
 }
