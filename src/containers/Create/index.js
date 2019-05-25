@@ -1,10 +1,58 @@
 import React from 'react';
 import classes from './index.less';
 import cls from 'classnames';
+import service from './service';
+import Modal from '../../components/modal';
 export default class Create extends React.Component {
+  state = {
+    title: "",
+    year: "",
+    month: "",
+    day: "",
+    description: "",
+    visible: false
+  }
+
+  changeHandle = (key) => (evt) => {
+    const { value } = evt.target;
+    this.setState({
+      [key]: value
+    });
+  }
+
+  submitHandle = () => {
+    const { title, description, year, month, day } = this.state;
+    const params = {
+      title,
+      description,
+      start_time: [year, month, day].join('-')
+    };
+    
+    service.create(params);
+  }
+
+  cancelHandle = () => {
+    this.setState({
+      visible: true
+    })
+  }
+
+  confirm = () => {
+    this.setState({
+      visible: false
+    })
+  }
+
+  cancel = () => {
+    this.setState({
+      visible: false
+    })
+  }
+
   render() {
+    const { title, year, month, day, description, visible } = this.state;
     return (
-      <form className={classes.container}>
+      <div className={classes.container}>
         <span className={classes.return}>返回</span>
         <span className={classes.title}>创建训练营</span>
         <div className={cls({
@@ -12,7 +60,7 @@ export default class Create extends React.Component {
           [classes.name]: true
         })}>
           <span>标题</span>
-          <input type="text" />
+          <input type="text" onChange={this.changeHandle('title')} value={title} />
         </div>
         <div className={cls({
           [classes.formItem]: true,
@@ -20,11 +68,11 @@ export default class Create extends React.Component {
         })}>
           <span>开营时间</span>
           <div>
-            <input type="text" />
+            <input type="text" onChange={this.changeHandle('year')} value={year} />
             年
-            <input type="text" />
+            <input type="text" onChange={this.changeHandle('month')} value={month} />
             月
-            <input type="text" />
+            <input type="text" onChange={this.changeHandle('day')} value={day} />
             日
           </div>
         </div>
@@ -34,11 +82,18 @@ export default class Create extends React.Component {
         })}>
           <span>描述</span>
           <div>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <span>0/300</span>
+            <textarea onChange={this.changeHandle('description')} value={description}></textarea>
+            <span className={classes.length}>0/300</span>
           </div>
         </div>
-      </form>
+        <div className={classes.buttonGroup}>
+          <button onClick={this.cancelHandle}>取消</button>
+          <button onClick={this.submitHandle}>保存</button>
+        </div>
+        <Modal title="真的要离开吗？" visible={visible} cancel={this.cancel} confirm={this.confirm}>
+          离开后就回不来了哦！
+        </Modal>
+      </div>
     )
   }
 }
