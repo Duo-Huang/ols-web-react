@@ -23,7 +23,7 @@ export default class Modal extends React.Component {
             <button onClick={cancel}>取消</button>
             <button onClick={confirm}>确认</button>
           </div>
-          <div className={classes.close}>×</div>
+          <div onClick={cancel} className={classes.close}>×</div>
         </div>
         <div onClick={cancel} className={classes.mask} />
 

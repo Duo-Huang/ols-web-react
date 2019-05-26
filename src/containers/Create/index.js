@@ -10,13 +10,15 @@ export default class Create extends React.Component {
     month: "",
     day: "",
     description: "",
-    visible: false
+    visible: false,
+    descriptionLength: 0
   }
 
   changeHandle = (key) => (evt) => {
     const { value } = evt.target;
     this.setState({
-      [key]: value
+      [key]: value,
+      descriptionLength: key === 'description' ? value.length : this.state.descriptionLength
     });
   }
 
@@ -40,20 +42,21 @@ export default class Create extends React.Component {
   confirm = () => {
     this.setState({
       visible: false
-    })
+    });
+    this.props.history.push('/train');
   }
 
   cancel = () => {
     this.setState({
       visible: false
-    })
+    });
   }
 
   render() {
-    const { title, year, month, day, description, visible } = this.state;
+    const { title, year, month, day, description, visible, descriptionLength } = this.state;
     return (
       <div className={classes.container}>
-        <span className={classes.return}>返回</span>
+        <span onClick={this.cancelHandle} className={classes.return}>返回</span>
         <span className={classes.title}>创建训练营</span>
         <div className={cls({
           [classes.formItem]: true,
@@ -83,7 +86,7 @@ export default class Create extends React.Component {
           <span>描述</span>
           <div>
             <textarea onChange={this.changeHandle('description')} value={description}></textarea>
-            <span className={classes.length}>0/300</span>
+            <span className={classes.length}>{descriptionLength}/300</span>
           </div>
         </div>
         <div className={classes.buttonGroup}>
