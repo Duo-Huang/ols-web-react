@@ -27,10 +27,12 @@ export default class Create extends React.Component {
     const params = {
       title,
       description,
-      start_time: [year, month, day].join('-')
+      // "startTime": "2018-01-02 10:12:55.222",
+      startTime: [year, month, day].join('-')
     };
-    
-    service.create(params);
+    service.create(params).then(() => {
+      this.props.history.push('/train');
+    });
   }
 
   cancelHandle = () => {

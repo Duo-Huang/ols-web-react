@@ -2,14 +2,8 @@
   "name": "ols-web-react",
   "version": "0.1.0",
   "private": true,
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:8080"
-    },
-    "/trainingcamps/*": {
-      "target": "http://localhost:8080"
-    }
-  },
+
+  "proxy": "http://10.205.22.151:8080",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",
@@ -37,6 +31,7 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "json-server": "^0.15.0",
     "less-loader": "^5.0.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
