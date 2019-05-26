@@ -2,8 +2,11 @@
   "name": "ols-web-react",
   "version": "0.1.0",
   "private": true,
-
-  "proxy": "http://10.205.22.151:8080",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:8080"
+    }
+  },
   "dependencies": {
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",

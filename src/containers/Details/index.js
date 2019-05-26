@@ -26,7 +26,7 @@ class Details extends React.PureComponent {
     this.getDetails();
   }
   getDetails() {
-    api.get('/trainingcamps/{id}').then((res) => {
+    api.get('/api/trainingcamps/{id}').then((res) => {
       const { data } = res;
       this.setState({ details: data });
     })

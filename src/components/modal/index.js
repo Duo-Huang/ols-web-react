@@ -1,5 +1,5 @@
 import React from 'react';
-import Portal from '../portal';
+import Portal from '../Portal';
 import classes from './index.less';
 export default class Modal extends React.Component {
   render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './index.less';
 import cls from 'classnames';
 import service from './service';
-import Modal from '../../components/modal';
+import Modal from '../../components/Modal';
 export default class Create extends React.Component {
   state = {
     title: "",
@@ -20,6 +20,10 @@ export default class Create extends React.Component {
       [key]: value,
       descriptionLength: key === 'description' ? value.length : this.state.descriptionLength
     });
+  }
+
+  goBack = () => {
+      this.props.history.goBack();
   }
 
   submitHandle = () => {
