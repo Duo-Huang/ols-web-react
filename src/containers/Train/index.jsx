@@ -41,7 +41,7 @@ export default class Topbar extends React.Component {
                         {
                             searchResult.map((item, index) => {
                                 return (
-                                    <li key={item.id} style={{ marginRight: (index + 2) % 3 === 0 ? 0 : '40px' }}>
+                                    <li key={item.id} onClick={() => {this.showDetail(item.id)}}style={{ marginRight: (index + 2) % 3 === 0 ? 0 : '40px' }}>
                                         <Card title={item.title} description={item.description} time={item.startTime} />
                                     </li>
                                 )
@@ -60,6 +60,8 @@ export default class Topbar extends React.Component {
                 trainList: resp.data,
                 searchResult: resp.data
             })
+        } else {
+            // TODO: 
         }
     }
 
@@ -74,13 +76,13 @@ export default class Topbar extends React.Component {
     }
 
     search = () => {
-        const { value } = this.state;
+        const { value, trainList } = this.state;
         const result = [];
         if (value === '') {
             window.location.reload();
             return;
         }
-        this.state.trainList.forEach((item) => {
+        trainList.forEach((item) => {
             if (item.title.match(value)) {
                 result.push(item);
             }
@@ -97,6 +99,10 @@ export default class Topbar extends React.Component {
     }
 
     addTrain = () => {
-        this.props.history.push('/create')
+        this.props.history.push('/train/create')
+    }
+
+    showDetail = (trainId) => {
+        this.props.history.push(`/train/details/${trainId}`)
     }
 }

@@ -182,6 +182,7 @@ module.exports = {
                       options: {
                         importLoaders: 1,
                         minimize: true,
+                        module: true,
                         sourceMap: shouldUseSourceMap,
                       },
                     },

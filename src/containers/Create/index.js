@@ -20,6 +20,10 @@ export default class Create extends React.Component {
     });
   }
 
+  goBack = () => {
+      this.props.history.goBack();
+  }
+
   submitHandle = () => {
     const { title, description, year, month, day } = this.state;
     const params = {
@@ -53,7 +57,7 @@ export default class Create extends React.Component {
     const { title, year, month, day, description, visible } = this.state;
     return (
       <div className={classes.container}>
-        <span className={classes.return}>返回</span>
+        <span className={classes.return} onClick={this.goBack}>返回</span>
         <span className={classes.title}>创建训练营</span>
         <div className={cls({
           [classes.formItem]: true,

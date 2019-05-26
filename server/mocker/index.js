@@ -1,7 +1,7 @@
 const trainList = require('./train/trainList.json');
 const proxy = {
     'GET /api/trainList': trainList,
-    'GET /trainingcamps/%7Bid%7D': {
+    'GET /api/trainingcamps/%7Bid%7D': {
         "id": 1,
         "title": "xx训练营",
         "start_time": "2018-01-02 10:12:55.222",
