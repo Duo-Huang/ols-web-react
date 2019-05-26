@@ -72,7 +72,10 @@ export default class Topbar extends React.Component {
     }
 
     inputClear = () => {
-        this.setState({value: ''})
+        this.setState({
+            value: '',
+            searchResult: this.state.trainList
+        })
     }
 
     search = () => {
